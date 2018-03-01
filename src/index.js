@@ -1,24 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { Posts } from './pages/posts';
+import posts from './reducers';
+import { ErrorBoundary } from './components/shared';
 
-class Welcome extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = {name: 'Medium'};
-  }
-  handleChange(e) {
-    this.setState({name: e.target.value});
-  }
-  render() {
-    return (
-      <div style={{textAlign: 'center'}}>
-        <h1>Welcome</h1>
-        <p>Hello {this.state.name}</p>
-        <input onChange={this.handleChange} defaultValue={this.state.name}/>
-      </div>
-    );
-  }
-}
+const initialData = [
+  { id: '01', executor: 'Jason', text: 'Buy milk', status: 'TODO' },
+  { id: '02', executor: 'Sam', text: 'Meeting with a client', status: 'TODO' },
+  { id: '03', executor: 'Kate', text: 'Create new project', status: 'TODO' },
+  { id: '04', executor: 'All', text: 'Update site', status: 'DOING' },
+  { id: '05', executor: 'Sam', text: 'Write new posts', status: 'DONE' },
+  { id: '06', executor: 'Jason', text: 'Fix my phone', status: 'DONE' }
+];
 
-ReactDOM.render(<Welcome/>, document.getElementById('app'));
+const store = createStore(posts, initialData);
+
+render(
+  <Provider store={store}>
+    <Posts />
+  </Provider>,
+  document.getElementById('app')
+);
