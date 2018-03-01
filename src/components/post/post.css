@@ -1,0 +1,15 @@
+.post-item__container{
+  background-color: aquamarine;
+  border: solid red 2px;
+  margin: 35px;
+  padding: 0 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.post-item__header{
+  font-weight: 30px;
+}
+
+.post-item__body{
+  font-weight: 14px;
+}

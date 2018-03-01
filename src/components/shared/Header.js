@@ -3,6 +3,6 @@ import './header.css';
 
 export class Header extends Component {
   render() {
-    return <div>Hello there!</div>;
+    return <div className="header__container">blooooggin</div>;
   }
 }
