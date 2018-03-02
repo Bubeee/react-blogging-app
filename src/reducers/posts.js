@@ -1,4 +1,5 @@
 import { ADD_POST, REMOVE_POST } from '../actions/constants';
+import { post } from './post';
 
 export const posts = (state = [], action) => {
   switch (action.type) {
