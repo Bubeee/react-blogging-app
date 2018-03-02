@@ -1,4 +1,4 @@
-import { ADD_POST, REMOVE_POST } from './constants';
+import { ADD_POST, REMOVE_POST, SEARCH_POSTS } from './constants';
 
 export const addPost = ({ title, content }) => {
   return {
@@ -14,3 +14,11 @@ export const removePost = id => {
     id
   };
 };
+
+export const searchPosts = searchText => {
+    return {
+      type: SEARCH_POSTS,
+      searchText
+    };
+  };
+  
