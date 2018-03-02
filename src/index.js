@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import { ErrorBoundary } from './components/shared';
@@ -15,9 +15,10 @@ const initialData = [
   { id: '06', title: '#1267du', content: 'Fix my phone' }
 ];
 
-const store = createStore(reducers, { posts: initialData, post: { } });
-
-render(
-  <Root store={store} />,
-  document.getElementById('root')
+const enhancers = compose(
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 );
+
+const store = createStore(reducers, { posts: initialData, post: {} }, enhancers);
+
+render(<Root store={store} />, document.getElementById('root'));

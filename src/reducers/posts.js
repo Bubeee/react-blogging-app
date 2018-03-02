@@ -1,9 +1,11 @@
+import { ADD_POST, REMOVE_POST } from '../actions/constants';
+
 export const posts = (state = [], action) => {
   switch (action.type) {
-    case '[Posts] ADD_POST':
+    case ADD_POST:
       return [...state, post(undefined, action)];
-    case '[Posts] REMOVE_POST':
-      return state.filter(p => post(p, action));
+    case REMOVE_POST:
+      return state.filter(p => p.id !== action.id);
     default:
       return state;
   }
