@@ -4,7 +4,9 @@ import {
   REQUEST_POSTS,
   REQUEST_POSTS_SUCCESS,
   LOGIN,
-  LOGIN_SUCCESS
+  LOGIN_SUCCESS,
+  REGISTER,
+  REGISTER_SUCCESS
 } from './constants';
 
 import history from '../pages/history';
@@ -43,10 +45,9 @@ export const requestPostsSuccess = (json, searchText) => {
 
 export const getPosts = searchText => dispatch => {
   dispatch(requestPosts(searchText));
-  debugger;
   let headers = new Headers({
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    Authorization: `Bearer ${localStorage.getItem('token')}`
   });
 
   return fetch(`${config.blogsApiBaseAddress}/blogs`, { headers })
@@ -91,5 +92,42 @@ export const login = user => dispatch => {
       localStorage.setItem('token', json.user.token);
 
       return dispatch(loginRequestSuccess(json.user));
+    });
+};
+
+export const registerRequest = email => {
+  return {
+    type: REGISTER,
+    email
+  };
+};
+
+export const registerRequestSuccess = user => {
+  history.push(`/posts`);
+  return {
+    type: REGISTER_SUCCESS,
+    user
+  };
+};
+
+export const register = user => dispatch => {
+  dispatch(registerRequest(user.username, user.email, user.password));
+  let headers = new Headers({
+    'Content-Type': 'application/json'
+  });
+
+  return fetch(`${config.blogsApiBaseAddress}/users`, {
+    method: 'POST',
+    body: JSON.stringify({ user }),
+    headers: headers
+  })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      localStorage.setItem('token', json.user.token);
+
+      return dispatch(registerRequestSuccess(json.user));
     });
 };

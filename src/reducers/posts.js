@@ -12,7 +12,6 @@ export const posts = (state = { isFetching: false, items: [] }, action) => {
         isFetching: true
       });
     case REQUEST_POSTS_SUCCESS:
-  debugger;
   return Object.assign({}, state, {
         isFetching: false,
         items: action.items.filter(
