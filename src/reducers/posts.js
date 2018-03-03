@@ -12,10 +12,11 @@ export const posts = (state = { isFetching: false, items: [] }, action) => {
         isFetching: true
       });
     case REQUEST_POSTS_SUCCESS:
-      return Object.assign({}, state, {
+  debugger;
+  return Object.assign({}, state, {
         isFetching: false,
-        items: action.posts.filter(
-          p => p.title.indexOf(action.searchText) !== -1
+        items: action.items.filter(
+          p => p.title ? p.title.indexOf(action.searchText) !== -1 : false
         ),
         lastUpdated: action.receivedAt
       });

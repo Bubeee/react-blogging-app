@@ -32,26 +32,29 @@ export const requestPosts = searchText => {
   };
 };
 
-export const requestPostsSuccess = json => {
-  debugger;
+export const requestPostsSuccess = (json, searchText) => {
   return {
     type: REQUEST_POSTS_SUCCESS,
-    posts: json.data.children.map(child => child.data),
-    receivedAt: Date.now()
+    items: json.blogs,
+    receivedAt: Date.now(),
+    searchText
   };
 };
 
 export const getPosts = searchText => dispatch => {
   dispatch(requestPosts(searchText));
-
-  let headers = new Headers({});
+  debugger;
+  let headers = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+  });
 
   return fetch(`${config.blogsApiBaseAddress}/blogs`, { headers })
     .then(
       response => response.json(),
       error => console.log('An error occurred.', error)
     )
-    .then(json => dispatch(requestPostsSuccess(json)));
+    .then(json => dispatch(requestPostsSuccess(json, searchText)));
 };
 
 export const loginRequest = email => {
@@ -62,7 +65,7 @@ export const loginRequest = email => {
 };
 
 export const loginRequestSuccess = user => {
-  debugger;
+  history.push(`/posts`);
   return {
     type: LOGIN_SUCCESS,
     user
@@ -86,7 +89,7 @@ export const login = user => dispatch => {
     )
     .then(json => {
       localStorage.setItem('token', json.user.token);
-      
+
       return dispatch(loginRequestSuccess(json.user));
     });
 };

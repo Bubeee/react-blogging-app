@@ -2,7 +2,7 @@ import React from 'react';
 import PostsList from './posts';
 import Login from './login';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import Post from './post';
 import history from './history';
 
