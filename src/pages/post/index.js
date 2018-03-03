@@ -23,7 +23,7 @@ class PostForm extends Component {
     this.inputContent.value = '';
 
     const { history } = this.props;
-    history.push('/');
+    history.push('/posts');
 };
 
   render() {

@@ -3,10 +3,14 @@ import { Header, Footer, SearchBar } from '../../components/shared';
 import { connect } from 'react-redux';
 import Post from '../../components/post/post';
 import './posts.css';
-import { removePost, searchPosts } from '../../actions';
+import { removePost, requestPosts, getPosts } from '../../actions';
 import { Link } from 'react-router-dom';
 
 class PostsList extends Component {
+  componentDidMount() {
+    this.props.onSearch('');
+  }
+
   render() {
     return (
       <div>
@@ -18,7 +22,7 @@ class PostsList extends Component {
 
           <SearchBar onSearch={this.props.onSearch} />
 
-          {this.props.posts.map(post => (
+          {this.props.posts.items.map(post => (
             <Post
               key={post.id}
               {...post}
@@ -44,7 +48,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(removePost(id));
     },
     onSearch: serachText => {
-      dispatch(searchPosts(serachText));
+      dispatch(getPosts(serachText));
     }
   };
 };
