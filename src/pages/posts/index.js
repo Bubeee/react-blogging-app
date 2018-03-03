@@ -21,12 +21,11 @@ class PostsList extends Component {
           </Link>
 
           <SearchBar onSearch={this.props.onSearch} />
-
           {this.props.posts.items.map(post => (
             <Post
-              key={post.id}
+              key={post._id}
               {...post}
-              onRemoveClick={() => this.props.onRemoveClick(post.id)}
+              onRemoveClick={() => this.props.onRemoveClick(post._id)}
             />
           ))}
         </div>

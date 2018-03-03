@@ -14,7 +14,13 @@ import { config } from '../../app.config';
 
 export const addPost = ({ title, content }) => {
   return {
-    type: ADD_POST,
+    type: ADD_POST
+  };
+};
+
+export const addPostSuccess = ({ title, content }) => {
+  return {
+    type: ADD_POST_SUCCESS,
     title,
     content
   };
