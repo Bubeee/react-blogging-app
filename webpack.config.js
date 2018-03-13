@@ -1,11 +1,19 @@
-var path = require('path');
-var webpack = require('webpack');
+const { resolve } = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
+  template: 'index.html',
+  inject: true,
+  minify: false, // TODO: add prod minification
+});
 
 module.exports = {
-  entry: './src/index.js',
+  entry: resolve('src', 'index.js'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    path: resolve('dist'),
+    filename: 'bundle.js',
+    // publicPath: '/',
   },
   module: {
     rules: [
@@ -20,11 +28,11 @@ module.exports = {
       }
     ]
   },
+  plugins: [htmlWebpackPlugin],
   stats: {
     colors: true
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
     historyApiFallback: true
   },
   devtool: 'source-map'
