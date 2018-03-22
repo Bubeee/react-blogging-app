@@ -3,7 +3,7 @@ import { Header, Footer, SearchBar } from '../../components/shared';
 import { connect } from 'react-redux';
 import Post from '../../components/post/post';
 import './posts.css';
-import { removePost, requestPosts, getPosts, logout } from '../../actions';
+import { getPosts, logout, removePostRequest } from '../../actions';
 import { Link } from 'react-router-dom';
 
 class PostsList extends Component {
@@ -44,7 +44,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     onRemoveClick: id => {
-      dispatch(removePost(id));
+      dispatch(removePostRequest(id));
     },
     onSearch: serachText => {
       dispatch(getPosts(serachText));

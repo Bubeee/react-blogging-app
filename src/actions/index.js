@@ -9,7 +9,8 @@ import {
   REGISTER,
   REGISTER_SUCCESS,
   LOGOUT,
-  REQUEST_POSTS_FAILURE
+  REQUEST_POSTS_FAILURE,
+  REMOVE_POST_SUCCESS
 } from './constants';
 
 import history from '../pages/history';
@@ -23,16 +24,21 @@ export const addPost = () => {
 };
 
 export const addPostSuccess = (post) => {
-  debugger;
   return {
     type: ADD_POST_SUCCESS,
     post: post
   };
 };
 
-export const removePost = id => {
+export const removePost = () => {
   return {
-    type: REMOVE_POST,
+    type: REMOVE_POST
+  };
+};
+
+export const removePostSuccess = id => {
+    return {
+    type: REMOVE_POST_SUCCESS,
     id
   };
 };
@@ -129,7 +135,6 @@ export const login = user => dispatch => {
       error => console.log('An error occurred.', error)
     )
     .then(json => {
-      debugger;
       localStorage.setItem('token', json.user.token);
 
       return dispatch(loginRequestSuccess(json.user));
@@ -162,6 +167,30 @@ export const addPostRequest = post => dispatch => {
     .then(json => {
       return dispatch(addPostSuccess(json));
     })
+    .catch(error => dispatch(requestPostsFailure(error)));
+};
+
+export const removePostRequest = id => dispatch => {
+  dispatch(removePost());
+  let headers = new Headers({
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  });
+
+  return fetch(`${config.blogsApiBaseAddress}/blogs/${id}`, {
+    method: 'DELETE',
+    headers: headers
+  })
+    .then(
+      response => {
+      if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        
+        return dispatch(removePostSuccess(id));
+      },
+      error => console.log('An error occurred.', error)
+    )
     .catch(error => dispatch(requestPostsFailure(error)));
 };
 

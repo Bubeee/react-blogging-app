@@ -1,6 +1,6 @@
 import {
   ADD_POST,
-  REMOVE_POST,
+  REMOVE_POST_SUCCESS,
   REQUEST_POSTS,
   REQUEST_POSTS_SUCCESS,
   REQUEST_POSTS_FAILURE,
@@ -17,7 +17,7 @@ export const posts = (
       return Object.assign({}, state, {
         items: [...state.items, action.post]
       });
-    case REMOVE_POST:
+    case REMOVE_POST_SUCCESS:
       return Object.assign({}, state, {
         items: state.items.filter(p => p._id !== action.id)
       });

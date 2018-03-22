@@ -43,7 +43,6 @@ export class Header extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  debugger;
   return {
     logout: () => {
       dispatch(logout());
