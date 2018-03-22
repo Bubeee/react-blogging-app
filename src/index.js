@@ -13,7 +13,7 @@ const enhancers = compose(
 
 const store = createStore(
   reducers,
-  { posts: { isFetching: false, items: [] }, post: {} },
+  { posts: { isFetching: false, items: [], error: {} }, post: {} },
   compose(
     applyMiddleware(thunkMiddleware),
     window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument()

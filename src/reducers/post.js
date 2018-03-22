@@ -4,9 +4,7 @@ export const post = (state = {}, action) => {
   switch (action.type) {
     case ADD_POST:
       return {
-        id: action.id,
-        title: action.title,
-        content: action.content
+        post: action.post
       };
     default:
       return state;

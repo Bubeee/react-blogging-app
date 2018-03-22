@@ -20,9 +20,6 @@ class Login extends Component {
 
     this.inputLogin.value = '';
     this.inputPassword.value = '';
-
-    // const { history } = this.props;
-    // history.push('/posts');
   }
 
   render() {

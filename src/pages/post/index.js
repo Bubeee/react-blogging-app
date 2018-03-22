@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Header, Footer } from '../../components/shared';
 import { connect } from 'react-redux';
 import './post.css';
-import { addPost } from '../../actions';
+import { addPost, addPostRequest } from '../../actions';
 
 class PostForm extends Component {
   inputTitle;
@@ -54,7 +54,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     create: post => {
-      dispatch(addPost(post));
+      dispatch(addPostRequest(post));
     }
   };
 };
