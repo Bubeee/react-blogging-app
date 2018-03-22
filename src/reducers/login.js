@@ -4,7 +4,7 @@ export const login = (state = { }, action) => {
   switch (action.type) {
     case LOGIN:
       return Object.assign({}, state, {
-        isFetching: false
+        isFetching: true
       });
     case LOGIN_SUCCESS:
       return Object.assign({}, state, {

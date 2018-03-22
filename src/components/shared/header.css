@@ -10,3 +10,12 @@
   font-size: 48px;
   text-align: center;
 }
+
+.header__button{
+  font-size: 18px;
+
+  margin: 15px;
+  vertical-align: middle;
+
+  float: right;
+}

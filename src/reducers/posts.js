@@ -11,7 +11,6 @@ export const posts = (state = { isFetching: false, items: [] }, action) => {
     case ADD_POST:
       return [...state, post(undefined, action)];
     case REMOVE_POST:
-    debugger;
       return Object.assign({}, state, {
         items: state.items.filter(p => p._id !== action.id)
       });

@@ -3,7 +3,7 @@ import { Header, Footer, SearchBar } from '../../components/shared';
 import { connect } from 'react-redux';
 import Post from '../../components/post/post';
 import './posts.css';
-import { removePost, requestPosts, getPosts } from '../../actions';
+import { removePost, requestPosts, getPosts, logout } from '../../actions';
 import { Link } from 'react-router-dom';
 
 class PostsList extends Component {

@@ -8,6 +8,8 @@ export const REQUEST_POSTS_FAILURE = '[Posts] REQUEST_POSTS_FAILURE';
 export const LOGIN = '[Login] LOGIN';
 export const LOGIN_SUCCESS = '[Login] LOGIN_SUCCESS';
 
+export const LOGOUT = '[Login] LOGOUT';
+
 export const REGISTER = '[Register] REGISTER';
 export const REGISTER_SUCCESS = '[Register] REGISTER_SUCCESS';
 

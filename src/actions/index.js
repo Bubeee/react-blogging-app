@@ -6,7 +6,8 @@ import {
   LOGIN,
   LOGIN_SUCCESS,
   REGISTER,
-  REGISTER_SUCCESS
+  REGISTER_SUCCESS,
+  LOGOUT
 } from './constants';
 
 import history from '../pages/history';
@@ -64,6 +65,10 @@ export const getPosts = searchText => dispatch => {
     .then(json => dispatch(requestPostsSuccess(json, searchText)));
 };
 
+export const loginRedirect = _ => {
+  history.push(`/login`);
+};
+
 export const loginRequest = email => {
   return {
     type: LOGIN,
@@ -76,6 +81,12 @@ export const loginRequestSuccess = user => {
   return {
     type: LOGIN_SUCCESS,
     user
+  };
+};
+
+export const logoutRequest = () => {
+  return {
+    type: LOGOUT
   };
 };
 
@@ -136,4 +147,10 @@ export const register = user => dispatch => {
 
       return dispatch(registerRequestSuccess(json.user));
     });
+};
+
+export const logout = () => dispatch => {
+  debugger;
+  localStorage.setItem('token', '');
+  dispatch(logoutRequest());
 };

@@ -11,7 +11,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={PostsList} />
         <Route path="/posts" component={PostsList} />
         <Route path="/new" component={Post} />
         <Route path="/login" component={Login} />
