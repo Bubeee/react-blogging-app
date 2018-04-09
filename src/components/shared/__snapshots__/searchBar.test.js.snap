@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar should render correctly 1`] = `
+<div
+  className="search-bar__container"
+>
+  <input
+    className="search-bar__input"
+    placeholder="Type text to search"
+    type="text"
+  />
+  <button
+    className="btn btn-info btn-lg search__button"
+    onClick={[Function]}
+  >
+    Search
+  </button>
+</div>
+`;

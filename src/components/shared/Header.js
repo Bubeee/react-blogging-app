@@ -6,7 +6,6 @@ import { logout } from '../../actions';
 
 export class Header extends Component {
   logout() {
-
     localStorage.setItem('token', '');
     dispatch(logoutRequest());
   }
