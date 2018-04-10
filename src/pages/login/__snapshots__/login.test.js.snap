@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should call submit on submit 1`] = `
+<div>
+  <Header />
+  <div
+    className="login-form__container"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <label
+        className="post-form__label"
+        htmlFor="title"
+      >
+        Email
+      </label>
+      <input
+        className="login-form__input"
+        name="title"
+        placeholder="Enter your email"
+        type="text"
+      />
+      <label
+        className="post-form__label"
+        htmlFor="content"
+      >
+        Password
+      </label>
+      <input
+        className="login-form__password"
+        name="content"
+        placeholder="Enter your password"
+        type="password"
+      />
+      <input
+        className="login-form__submit"
+        type="submit"
+        value="Login"
+      />
+    </form>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`Login should render correctly 1`] = `
+<div>
+  <Header />
+  <div
+    className="login-form__container"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <label
+        className="post-form__label"
+        htmlFor="title"
+      >
+        Email
+      </label>
+      <input
+        className="login-form__input"
+        name="title"
+        placeholder="Enter your email"
+        type="text"
+      />
+      <label
+        className="post-form__label"
+        htmlFor="content"
+      >
+        Password
+      </label>
+      <input
+        className="login-form__password"
+        name="content"
+        placeholder="Enter your password"
+        type="password"
+      />
+      <input
+        className="login-form__submit"
+        type="submit"
+        value="Login"
+      />
+    </form>
+  </div>
+  <Footer />
+</div>
+`;

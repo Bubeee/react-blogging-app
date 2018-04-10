@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode=development",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "repository": "git+https://github.com/Bubeee/react-blogging-app.git",
   "author": "Valodzya",
@@ -54,6 +56,13 @@
         "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
     },
-    "setupFiles": ["jest-localstorage-mock"]
+    "setupFiles": ["jest-localstorage-mock", "./test/jestsetup.js"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/dist/**",
+      "!**/vendor/**"
+    ]
   }
 }

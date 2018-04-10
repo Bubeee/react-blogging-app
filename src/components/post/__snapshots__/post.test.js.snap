@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post should render correctly 1`] = `
+<div
+  className="post-item__container"
+>
+  <h2
+    className=""
+  >
+    test
+  </h2>
+  <p
+    className=""
+  >
+    test post
+  </p>
+  <a
+    className="btn btn-danger btn-lg remove__button"
+    href="#"
+  >
+    <span
+      className="glyphicon glyphicon-remove-circle"
+      onClick={[Function]}
+    >
+       Delete
+    </span>
+  </a>
+</div>
+`;

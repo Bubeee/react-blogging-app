@@ -15,19 +15,3 @@ exports[`Header should render correctly 1`] = `
   </Link>
 </div>
 `;
-
-exports[`Header should render correctly with token in local storage 1`] = `
-<div
-  className="header__container"
->
-  blooooggin
-  <Link
-    className="btn btn-success btn-lg header__button"
-    onClick={[Function]}
-    replace={false}
-    to="/"
-  >
-    Logout
-  </Link>
-</div>
-`;
