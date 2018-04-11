@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login should render correctly 1`] = `
+exports[`PostForm should render correctly 1`] = `
 <div>
   <Header />
   <div
-    className="login-form__container"
+    className="post-form__container"
   >
     <form
       onSubmit={[Function]}
@@ -13,30 +13,29 @@ exports[`Login should render correctly 1`] = `
         className="post-form__label"
         htmlFor="title"
       >
-        Email
+        Title
       </label>
       <input
-        className="login-form__input"
+        className="post-form__input"
         name="title"
-        placeholder="Enter your email"
+        placeholder="Enter the title"
         type="text"
       />
       <label
         className="post-form__label"
         htmlFor="content"
       >
-        Password
+        Content
       </label>
-      <input
-        className="login-form__password"
+      <textarea
+        className="post-form__textarea"
         name="content"
-        placeholder="Enter your password"
-        type="password"
+        placeholder="Enter the content"
       />
       <input
-        className="login-form__submit"
+        className="post-form__submit"
         type="submit"
-        value="Login"
+        value="Add"
       />
     </form>
   </div>

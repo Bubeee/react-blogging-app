@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './post.css';
 import { addPost, addPostRequest } from '../../actions';
 
-class PostForm extends Component {
+export class PostForm extends Component {
   inputTitle;
   inputContent;
 
